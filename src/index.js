@@ -11,12 +11,16 @@ document.getElementById("app").innerHTML = `
 let a = "bottles of beer on the wall";
 let b = "bottles of beer";
 let c = "Take one down, pass it around";
+function dodaj(a,b)
+{
+  return a+b
+}
 function ispis() {
   let s = "";
   for (var i = 99; i > 0; i--) {
-    s += i.toString() + " " + a + "\n";
-    s += i.toString() + " " + b + "\n";
-    s += c + "\n";
+    s=dodaj(s, i.toString() + " " + a + "\n");
+    s=dodaj(s,i.toString() + " " + b + "\n");
+    s=dodaj(s,c + "\n");
   }
   return s;
 }
