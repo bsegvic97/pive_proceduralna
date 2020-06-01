@@ -8,20 +8,46 @@ document.getElementById("app").innerHTML = `
   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
 </div>
 `;
-let a = "bottles of beer on the wall";
-let b = "bottles of beer";
-let c = "Take one down, pass it around";
+//prvi string koji nam se ponavlja u ispisu
+function prvi_str()
+{
+  return "bottles of beer on the wall";
+}
+//drugi string koji nam se ponavlja u ispisu
+function drugi_str()
+{
+  return "bottles of beer";
+}
+//treci string koji se ponavlja u ispisu
+function treci_str()
+{
+  return "Take one down, pass it around";
+}
+//funkcija za spajanje 2 stringa
 function dodaj(a,b)
 {
-  return a+b
+  //ako je duljina prvog jedan nemoj dodat novi red
+  if(a.length===1)
+    return a+" "+b ;
+  //inace dodaj novi red
+  else
+    return a+" "+b+" \n"
+  //ubacili ovaj uvjet jer nekad 2 puta dodajemo, a nekad 1 pa da uvijek bude tocno jedan novi red
 }
-function ispis() {
-  let s = "";
-  for (var i = 99; i > 0; i--) {
-    s=dodaj(s, i.toString() + " " + a + "\n");
-    s=dodaj(s,i.toString() + " " + b + "\n");
-    s=dodaj(s,c + "\n");
+let s = "";
+function ispis()
+ {
+  
+  for (var i = 99; i > 0; i--)
+  {
+    //dodavanje broja boca na prvi string i dodavanje na "konacno rjesenje"
+    s=dodaj(s,dodaj(i.toString(),prvi_str()))
+    //dodavanje broja boca na drugi string i dodavanje na "konacno rjesenje"
+    s=dodaj(s,dodaj(i.toString(),drugi_str()))
+    //dodavanje treceg string konacnom rjesenju treci string je uvijek isti ne ovisi o broju bocu, tj. ne dodaje s broj boca
+    s=dodaj(s,treci_str())
   }
-  return s;
+   //ispis
+  console.log(s)
 }
-console.log(ispis());
+ispis()
